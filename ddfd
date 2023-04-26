@@ -1,0 +1,32 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("صيد البري", "BloodTheme")
+
+local gd = Window:NewTab("اوتو فارم")
+local Section = gd:NewSection("بواسطه i_5o5")
+Section:NewButton("جمع الضب", "ButtonInfo", function()
+    local args = {
+        [1] = "ClaimDabb"
+    }
+    
+    for i=1, 16 do
+        game:GetService("ReplicatedStorage").Remotes.AnimalRemotes.CAA:FireServer(unpack(args))
+        wait(1)
+        
+        if i == 16 then
+            break
+        end
+    end
+end)
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    print("Clicked")
+end)
+
+Section:NewButton("بيع ", "ButtonInfo", function()
+
+local args = {
+    [1] = "SellAll"
+}
+
+game:GetService("ReplicatedStorage").Remotes.AnimalRemotes.SAA:FireServer(unpack(args))
+
+end)
